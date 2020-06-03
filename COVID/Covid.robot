@@ -12,7 +12,7 @@ ${pan no}         AAAPZ1234C
 
 *** Test Cases ***
 Testcase1
-    Local browser launch
+    #Local browser launch
     Jenkins browser launch
     Proposer get details
     Insured 1 member covered
