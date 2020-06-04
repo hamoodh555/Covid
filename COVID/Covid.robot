@@ -12,8 +12,8 @@ ${pan no}         AAAPZ1234C
 
 *** Test Cases ***
 1 insured with Self as Insured without loading
-    #Local browser launch
-    Jenkins browser launch
+    Local browser launch
+    #Jenkins browser launch
     Proposer get details
     Sum insured 50,000
     Insured 1 member covered
@@ -34,8 +34,8 @@ ${pan no}         AAAPZ1234C
     Nomine details
 
 1 insured with Self as Insured with loading
-    #Local browser launch
-    Jenkins browser launch
+    Local browser launch
+    #Jenkins browser launch
     Proposer get details
     Sum insured 25,000
     Insured 1 member covered
@@ -47,8 +47,8 @@ ${pan no}         AAAPZ1234C
     Medical question continue button
 
 1 Insured with Self with Medical Question as Yes(Quote Blocked)
-    #Local browser launch
-    Jenkins browser launch
+    Local browser launch
+    #Jenkins browser launch
     Proposer get details
     Sum insured 25,000
     Insured 1 member covered
@@ -62,8 +62,8 @@ ${pan no}         AAAPZ1234C
     Handle Alert
 
 1 insured as Spouse without loading
-    #Local browser launch
-    Jenkins browser launch
+    Local browser launch
+    #Jenkins browser launch
     Proposer get details
     Sum insured 50,000
     Insured 1 member covered
@@ -77,8 +77,8 @@ ${pan no}         AAAPZ1234C
     Click Element    xpath=.//table[@class='ui-datepicker-calendar']/tbody/tr/td/a[contains(.,'1')]
 
 1 Insured as Father with Loading
-    #Local browser launch
-    Jenkins browser launch
+    Local browser launch
+    #Jenkins browser launch
     Proposer get details
     Sum insured 25,000
     Insured 1 member covered
@@ -90,8 +90,8 @@ ${pan no}         AAAPZ1234C
     Medical question continue button
 
 1 Insured as Father with Loading
-    #Local browser launch
-    Jenkins browser launch
+    Local browser launch
+    #Jenkins browser launch
     Proposer get details
     Sum insured 50,000
     Insured 1 member covered
@@ -103,8 +103,8 @@ ${pan no}         AAAPZ1234C
     Medical question continue button
 
 1 insured as Son without Loading
-    #Local browser launch
-    Jenkins browser launch
+    Local browser launch
+    #Jenkins browser launch
     Proposer get details
     Sum insured 25,000
     Insured 1 member covered
@@ -204,12 +204,10 @@ Medical questions 1,3,4,5 Yes
 Medical questions 2 Yes
     Click Element    xpath=.//div[@id='meidicalform-section']//li[3]//label/span[contains(.,'Yes')]
     Click Element    xpath=.//label[@for='hbaic']
-    Input Text    id=hbaicfield1
+    Input Text    id=hbaicfield1    7.5
 
 Medical questions 2 No
     Click Element    xpath=.//div[@id='meidicalform-section']//li[3]//label/span[contains(.,'No')]
-    Click Element    xpath=.//label[@for='hbaic']
-    Input Text    id=hbaicfield1
 
 Premium continue button
     Click Element    xpath=.//div[@class='premiumdetail-container']//a[@class='btn btn-secondary continuetoproposerform']
@@ -251,7 +249,7 @@ Insured details with son
 Insured details with daughter
     Select From List By Label    id=relationShipProposer1    Daughter
 
-Insured details with son
+Insured details with father in law
     Select From List By Label    id=relationShipProposer1    Father in law
 
 Insured details with mother
