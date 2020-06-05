@@ -8,7 +8,8 @@ ${prospername}    Logi
 ${mobilenumber}    9000080901
 ${email_id}       QCTEAM1@XERAGO.MAIL
 ${Lastname}       Mohan
-${pan no}         AAAPZ1234C
+#${occupation}    Student
+#${pan_no}        AAAPZ1234C
 
 *** Test Cases ***
 1 insured with Self as Insured without loading
@@ -21,17 +22,24 @@ ${pan no}         AAAPZ1234C
     23 year click
     Insured dob continue button
     Medical question all NO
+    Scroll down
+    Medical question continue button
     Premium continue button
     Click Element    id=proprserdob
     23 year click
     Proposer details    Mohan    Student    hucde1234r
     Contact details
-    Sroll down
+    Scroll down
     Click Element    xpath=.//div[@id='contactdetails']//a
     Insured details with self
-    Sroll down
+    Scroll down
     Click Element    xpath=.//*[@id='nexBtn1']
     Nomine details
+    Handle Alert
+    OTP value
+    Select BillDesk payment
+    Terms and condition
+    Ensure thankyou page
 
 1 insured with Self as Insured with loading
     Local browser launch
@@ -44,7 +52,24 @@ ${pan no}         AAAPZ1234C
     Insured dob continue button
     Medical questions 1,3,4,5 No
     Medical questions 2 Yes
+    Scroll down
     Medical question continue button
+    Premium continue button
+    Click Element    id=proprserdob
+    65 year click
+    Proposer details    Mohan    Student    hucde1234r
+    Contact details
+    Scroll down
+    Click Element    xpath=.//div[@id='contactdetails']//a
+    Insured details with self
+    Scroll down
+    Click Element    xpath=.//*[@id='nexBtn1']
+    Nomine details
+    Handle Alert
+    OTP value
+    Select BillDesk payment
+    Terms and condition
+    Ensure thankyou page
 
 1 Insured with Self with Medical Question as Yes(Quote Blocked)
     Local browser launch
@@ -57,7 +82,6 @@ ${pan no}         AAAPZ1234C
     Insured dob continue button
     Medical questions 1,3,4,5 Yes
     Medical questions 2 No
-    Medical question continue button
     Handle Alert
     Handle Alert
 
@@ -71,10 +95,26 @@ ${pan no}         AAAPZ1234C
     30 year click
     Insured dob continue button
     Medical question all NO
+    Scroll down
+    Medical question continue button
     Premium continue button
     Click Element    id=proprserdob
     Select From List By Label    xpath=.//select[@class='ui-datepicker-year']    1945
     Click Element    xpath=.//table[@class='ui-datepicker-calendar']/tbody/tr/td/a[contains(.,'1')]
+    Proposer details    Mohan    Student    hucde1234r
+    Contact details
+    Sroll down
+    Click Element    xpath=.//div[@id='contactdetails']//a
+    Insured details with spouse
+    Insured comman details
+    Sroll down
+    Insured occupation
+    Nomine details
+    Handle Alert
+    OTP value
+    Select BillDesk payment
+    Terms and condition
+    Ensure thankyou page
 
 1 Insured as Father with Loading
     Local browser launch
@@ -88,8 +128,26 @@ ${pan no}         AAAPZ1234C
     Medical questions 1,3,4,5 No
     Medical questions 2 Yes
     Medical question continue button
+    Premium continue button
+    Click Element    id=proprserdob
+    Select From List By Label    xpath=.//select[@class='ui-datepicker-year']    1993
+    Click Element    xpath=.//table[@class='ui-datepicker-calendar']/tbody/tr/td/a[contains(.,'1')]
+    Proposer details    Mohan    Student    hucde1234r
+    Contact details
+    Sroll down
+    Click Element    xpath=.//div[@id='contactdetails']//a
+    Insured details with father
+    Insured comman details
+    Sroll down
+    Insured occupation
+    Nomine details
+    Handle Alert
+    OTP value
+    Select BillDesk payment
+    Terms and condition
+    Ensure thankyou page
 
-1 Insured as Father with Loading
+1 Insured as Mother in law with Loading
     Local browser launch
     #Jenkins browser launch
     Proposer get details
@@ -101,6 +159,24 @@ ${pan no}         AAAPZ1234C
     Medical questions 1,3,4,5 No
     Medical questions 2 Yes
     Medical question continue button
+    Premium continue button
+    Click Element    id=proprserdob
+    Select From List By Label    xpath=.//select[@class='ui-datepicker-year']    1989
+    Click Element    xpath=.//table[@class='ui-datepicker-calendar']/tbody/tr/td/a[contains(.,'1')]
+    Proposer details    Mohan    Student    hucde1234r
+    Contact details
+    Sroll down
+    Click Element    xpath=.//div[@id='contactdetails']//a
+    Insured details with mother in law
+    Insured comman details
+    Sroll down
+    Insured occupation
+    Nomine details
+    Handle Alert
+    OTP value
+    Select BillDesk payment
+    Terms and condition
+    Ensure thankyou page
 
 1 insured as Son without Loading
     Local browser launch
@@ -112,13 +188,26 @@ ${pan no}         AAAPZ1234C
     23 year click
     Insured dob continue button
     Medical question all NO
+    Medical question continue button
     Premium continue button
     Click Element    id=proprserdob
-    23 year click
+    Select From List By Label    xpath=.//select[@class='ui-datepicker-year']    1989
+    Click Element    xpath=.//table[@class='ui-datepicker-calendar']/tbody/tr/td/a[contains(.,'1')]
     Proposer details    Mohan    Student    hucde1234r
     Contact details
     Sroll down
-    Click Element    xpath=
+    Click Element    xpath=.//div[@id='contactdetails']//a
+    Insured details with son
+    Insured comman details
+    Sroll down
+    Insured occupation
+    Nomine details
+    Handle Alert
+    OTP value
+    Select BillDesk payment
+    Terms and condition
+    Ensure thankyou page
+
 
 *** Keywords ***
 Jenkins browser launch
@@ -184,7 +273,6 @@ Insured dob continue button
 
 Medical question all NO
     Click Element    xpath=(.//label[@class='btn btn-default active toggle-off'][contains(.,'NO')])[1]
-    Click Element    xpath=.//div[@id='meidicalform-section']//a
 
 Medical question continue button
     Click Element    xpath=.//div[@id='meidicalform-section']//a
@@ -203,11 +291,13 @@ Medical questions 1,3,4,5 Yes
 
 Medical questions 2 Yes
     Click Element    xpath=.//div[@id='meidicalform-section']//li[3]//label/span[contains(.,'Yes')]
-    Click Element    xpath=.//label[@for='hbaic']
+    #Click Element    xpath=.//label[@for='hbaic']
     Input Text    id=hbaicfield1    7.5
+    Click Element    xpath=.//div[@id='meidicalform-section']//a
 
 Medical questions 2 No
     Click Element    xpath=.//div[@id='meidicalform-section']//li[3]//label/span[contains(.,'No')]
+    Click Element    xpath=.//div[@id='meidicalform-section']//a
 
 Premium continue button
     Click Element    xpath=.//div[@class='premiumdetail-container']//a[@class='btn btn-secondary continuetoproposerform']
@@ -216,10 +306,11 @@ Proposer details
     [Arguments]    ${lastname}    ${occupation}    ${pan_no}
     Click Element    xpath=.//*[@for='lname']
     Input Text    id=lname    ${lastname}
-    Select From List By Label    xpath=.//*[@name='insuredOccupation1']    ${occupation}
+    Select From List By Label    xpath=.//*[@name='proposerOccupation']    ${occupation}
     Click Element    xpath=.//div[@id='proposerdetails']/div[7]//div/label/span[contains(.,'Female')]
     Click Element    xpath=.//*[@for='panNo']
     Input Text    id=panNo    ${pan_no}
+    Click Element    xpath=.//div[@id='proposerdetails']//a
 
 Contact details
     Click Element    xpath=.//label[@for='address1']
@@ -255,6 +346,19 @@ Insured details with father in law
 Insured details with mother
     Select From List By Label    id=relationShipProposer1    Mother
 
+Insured comman details
+    [Arguments]    ${ins_fname}    ${in_lname}    ${in_pan_no}    ${in_occupation}
+    Click Element    xpath=.//label[@for=prospername2]
+    Input Text    id=prospername1    ${ins_fname}
+    Click Element    xpath=.//label[@for=prosperLastName]
+    Input Text    id=prosperLastName1    ${in_lname}
+    Click Element    xpath=.//label[@for=insuredpanNo]
+    Input Text    id=insuredpanNo1    ${in_pan_no}
+
+Insured occupation
+    Select From List By Label    id=prosperOccupation1    ${in_occupation}
+    Click Element    id=nexBtn1
+
 Nomine details
     Click Element    xpath=.//*[@for='NomineeName']
     Input Text    id=NomineeName    suresh
@@ -262,6 +366,8 @@ Nomine details
     Select From List By Label    xpath=.//select[@class='ui-datepicker-year']    1990
     Click Element    xpath=.//table[@class='ui-datepicker-calendar']/tbody/tr/td/a[contains(.,'1')]
     Select From List By Label    id=relationWithProposer    Brother
+    Sleep    2s
+    Execute JavaScript    window.scrollTo(0, document.body.scrollHeight)
     Click Element    xpath=.//*[@for='nomineeAddress1']
     Input Text    id=nomineeAddress1    lskdfngjsdjkngjkfng
     Click Element    xpath=.//*[@for='nomineeAddress2']
@@ -271,7 +377,25 @@ Nomine details
     Click Element    xpath=.//*[@for='nomineeCity']
     Click Element    xpath=.//*[@for='nomineePincode']
     Input Text    id=nomineePincode    600988
-    Click Element    xpath=.//div[@id='insuredDetails-sec']//div//a[contains(.,'Continue')]
+    Click Element    xpath=.//div[@id='insuredDetails-sec']//div//a[@id='nexBtn1']
 
-Sroll down
+OTP value
+    Input Text    id=mobileOTP    123456
+    Click Element    id=mobileOTPSubmit
+
+Select BillDesk payment
+    Click Element    xpath=.//div[@class='payment-method text-center']/div[@class='payment-method-list Billdesk']
+    Sleep    5s
+
+Terms and condition
+    Click Element    id=declaration
+    Switch Window    title=Royal Sundaram | COVID Secure
+    Click Element    id=paynowCovid
+
+Ensure thankyou page
+    #${thankyou_page_txt}=    Get Time    xpath=.//h3[@class='text-primary']
+    Element Text Should Be    xpath=.//h3[@class='text-primary']    THANK YOU
+
+Scroll down
+    Sleep    4s
     Execute JavaScript    window.scrollTo(0, document.body.scrollHeight)
